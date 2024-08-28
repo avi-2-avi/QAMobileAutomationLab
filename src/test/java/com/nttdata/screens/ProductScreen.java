@@ -26,13 +26,15 @@ public class ProductScreen extends PageObject {
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Labs Bike Light\"]")
     private WebElement bikeImage;
 
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Labs Fleece Jacket\"]")
+    private WebElement jacketImage;
+
     public String getTitle() {
         WebDriverWait wait = new WebDriverWait(getDriver(), 15);
         wait.until(ExpectedConditions.visibilityOf(productSectionTitle));
 
         return productSectionTitle.getText();
     }
-
     public int getCountElements(){
         return productList.size();
     }
@@ -47,5 +49,9 @@ public class ProductScreen extends PageObject {
 
     public void navigateBike() {
         bikeImage.click();
+    }
+
+    public void navigateJacket() {
+        jacketImage.click();
     }
 }
